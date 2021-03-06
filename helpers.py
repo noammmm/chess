@@ -1,4 +1,3 @@
-import pygame as pg
 from piece import *
 
 def initialize_positions():
@@ -27,12 +26,8 @@ def initialize_positions():
 					# make rooks
 					p = Rook("White")
 				if letter=="D":
-					colour = "White"
-					p_type = "Queen"
 					p = Queen("White")
 				if letter=="E":
-					colour = "White"
-					p_type = "King"
 					p = King("White")
 
 			if number==8:

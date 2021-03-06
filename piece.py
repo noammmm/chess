@@ -5,16 +5,22 @@ class Piece:
 	def __init__(self, colour):
 		self.colour = colour
 		self.alive = True
+		self.font = pg.font.SysFont(None, 18)
+		self.pad = 40
 		# self.font = pg.font.SysFont(None, 28)
 		# self.screen = screen
+		if self.colour=="White":
+			self.col = (225, 255, 255)
+		else:
+			self.col = (0,0,0)
 
 
-	def draw(self):
-		pass
-		#img = self.font.render(self.piece_type, True, (255, 255, 255))
-		#self.screen.blit(img, (self.x, self.y))
+	def draw(self, place, screen):
+		img = self.font.render(self.piece_type, True, self.col)
+		pg.draw.circle(screen, self.col, place[::-1], 4)
+		screen.blit(img, place[::-1])
 
-	def moveTo(position):
+	def moveTo(self, position):
 		pass
 
 
