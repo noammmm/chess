@@ -1,19 +1,18 @@
 import pygame as pg
-from chess import screen
 
 class Piece:
 	"""This is the class for a chess piece"""
 	def __init__(self, colour):
 		self.colour = colour
 		self.alive = True
-		self.font = pg.font.SysFont(None, 28)
-		self.screen = screen
+		# self.font = pg.font.SysFont(None, 28)
+		# self.screen = screen
 
 
 	def draw(self):
-
-		img = self.font.render(self.piece_type, True, (255, 255, 255))
-		self.screen.blit(img, (self.x, self.y))
+		pass
+		#img = self.font.render(self.piece_type, True, (255, 255, 255))
+		#self.screen.blit(img, (self.x, self.y))
 
 	def moveTo(position):
 		pass
@@ -23,7 +22,7 @@ class Piece:
 class Pawn(Piece):
 	def __init__(self, colour):
 		super().__init__(colour) 
-		self.piece_type="Pawn"
+		self.piece_type=" Pawn "
 	
 	def logic():
 		pass
@@ -31,7 +30,7 @@ class Pawn(Piece):
 class Rook(Piece):
 	def __init__(self, colour):
 		super().__init__(colour)
-		self.piece_type  = "Rook"
+		self.piece_type  = " Rook "
 	def logic():
 		pass
 
@@ -52,13 +51,13 @@ class Bishop(Piece):
 class Queen(Piece):
 	def __init__(self, colour):
 		super().__init__(colour)
-		self.piece_type = "Queen"
+		self.piece_type = "Queen "
 	def logic():
 		pass
 
 class King(Piece):
 	def __init__(self, colour):
 		super().__init__(colour)
-		self.piece_type = "King"
+		self.piece_type = " King "
 	def logic():
 		pass

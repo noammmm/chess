@@ -1,13 +1,9 @@
 import pygame as pg
 from piece import *
 
-def initialize_positions(screen):
+def initialize_positions():
 	""" Returns 2d array with either None values or piece objects"""
 	letters = ["A","B","C","D","E","F","G","H"]
-	sc = ["A", "H", "B", "G", "C", "F"]
-	side_pieces = ["Rook", "Knight", "Bishop"]
-	colour=None
-	p_type=None
 	out = []
 	for number in range(1,9):
 		row = []
@@ -21,10 +17,15 @@ def initialize_positions(screen):
 			# back pieces			
 			if number==1:
 				# white back
-				for i in range(0, len(sc), 2):
-					if letter == sc[i] or letter == sc[i+1]:
-						colour = "White"
-						p_type = side_pieces[i//2]
+				if letter=="F" or letter =="C":
+					# make bishops
+					p = Bishop("White")
+				if letter=="B" or letter =="G":
+					# make knights
+					p = Knight("White")
+				if letter=="A" or letter =="H":
+					# make rooks
+					p = Rook("White")
 				if letter=="D":
 					colour = "White"
 					p_type = "Queen"
@@ -32,20 +33,23 @@ def initialize_positions(screen):
 				if letter=="E":
 					colour = "White"
 					p_type = "King"
+					p = King("White")
 
 			if number==8:
 				# black back
-				for i in range(0, len(sc), 2):
-					if letter == sc[i] or letter == sc[i+1]:
-						colour = "Black"
-						p_type = side_pieces[i//2]	
+				if letter=="F" or letter =="C":
+					# make bishops
+					p = Bishop("Black")
+				if letter=="B" or letter =="G":
+					# make knights
+					p = Knight("Black")
+				if letter=="A" or letter =="H":
+					# make rooks
+					p = Rook("Black")
 				if letter=="D":
-					colour = "Black"
-					p_type = "Queen"
 					p = Queen("Black")
 				if letter=="E":
-					colour = "Black"
-					p_type = "King"
+					p = King("Black")
 			row.append(p)
 		out.append(row)
 	return out

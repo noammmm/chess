@@ -2,15 +2,14 @@ from piece import *
 
 class Player():
 
-	def __init__(self, name, colour, board, screen):
+	def __init__(self, name, colour, board):
 
 		self.name = name
 		self.colour = colour
 		self.board = board
 		self.check = False
 		self.checkMate = False
-		self.pieces = []
-		self.screen = screen
+		# self.screen = screen
 
 		if self.colour=="White":
 			self.frontrow = 1
@@ -27,6 +26,7 @@ class Player():
 
 	def init_pieces(self):
 		pass
+
 
 	def turn():
 		pass
