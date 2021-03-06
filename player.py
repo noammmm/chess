@@ -3,6 +3,7 @@ from piece import *
 class Player():
 
 	def __init__(self, name, colour, ppos):
+		
 		self.name = name
 		self.colour = colour
 		self.ppos = ppos
@@ -12,9 +13,13 @@ class Player():
 		if self.colour=="White":
 			self.frontrow = 1
 			self.backrow = 0
+			self.turn = True
+
 		if self.colour=="Black":
 			self.frontrow = 6
 			self.backrow = 7
+			self.Turn = False
+
 
 		self.init_pieces()
 
