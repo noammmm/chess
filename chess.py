@@ -25,22 +25,21 @@ def drawchequerboard(n, size):
 
 if __name__ == "__main__":
 
-	player1 = Player("Alice", "White")
-	player2 = Player("Bob", "Black")
-
 	pg.init()
 
 	green = (118, 150, 85)
 	size = 400, 400
 	screen = pg.display.set_mode(size)
 
-	p = Pawn((1, 2),"King", "black")
-	print(p.colour)
+	# print
+	# print(initialize_positions()[1]["A"])
+	initial_positions = initialize_positions()
 
-	print(initialize_positions())
+	player1 = Player("Alice", "White", initial_positions)
+	# player2 = Player("Bob", "Black", initial_positions)
 
 
-	# Loop
+	# Main loop
 	while 1:
 	    for event in pg.event.get():
 	        if event.type == pg.QUIT: sys.exit()

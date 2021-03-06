@@ -6,8 +6,9 @@ def initialize_positions():
 	side_pieces = ["Rook", "Knight", "Bishop", "Queen"]
 	colour=None
 	p_type=None
-	squares = []
+	out = []
 	for number in range(1,9):
+		row = {}
 		for letter in letters:
 			# set pawns
 			colour = None
@@ -45,5 +46,7 @@ def initialize_positions():
 					colour = "Black"
 					p_type = "King"
 
-			squares.append({letter:number, "piece":(colour, p_type)})
-	return squares
+			# row.append({letter:number, "piece":(colour, p_type)})
+			row[letter] = {"Colour":colour, "P_type":p_type}
+		out.append(row)
+	return out
