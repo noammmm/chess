@@ -1,14 +1,21 @@
+import pygame as pg
+
 class Piece:
 	"""This is the class for a chess piece"""
-	def __init__(self, pos, piece_type, colour):
+	def __init__(self, pos, piece_type, colour, screen):
 		self.x = pos[0]
 		self.y = pos[1]
 		self.piece_type = piece_type
 		self.colour = colour
 		self.alive = True
+		self.font = pg.font.SysFont(None, 28)
+		self.screen = screen
 
-	def draw():
-		pass
+
+	def draw(self):
+
+		img = self.font.render(self.piece_type, True, (255, 255, 255))
+		self.screen.blit(img, (self.x, self.y))
 
 	def moveTo(position):
 		pass
@@ -16,8 +23,8 @@ class Piece:
 
 
 class Pawn(Piece):
-	def __init__(self, pos, piece_type, colour):
-		super().__init__(pos, piece_type, colour) 
+	def __init__(self, pos, piece_type, colour, screen):
+		super().__init__(pos, piece_type, colour, screen) 
 	
 	def logic():
 		pass

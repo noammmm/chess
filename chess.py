@@ -6,7 +6,6 @@ from player import *
 
 
 def drawchequerboard(n, size):
-	font = pg.font.SysFont(None, 18)
 	lttr = ["A","B","C","D","E","F","G","H"]
 	sqrsize = 50 # size[0]/n 
 	pad = 40
@@ -43,12 +42,16 @@ if __name__ == "__main__":
 
 	pg.init()
 
+	font = pg.font.SysFont(None, 18)
+
 	green = (118, 150, 85)
 	size = 480, 480
 	screen = pg.display.set_mode(size)
 	# print
 	# print(initialize_positions()[1]["A"])
 	initial_positions = initialize_positions()
+
+	p1 = Pawn((100, 100), "Pawn", "White", screen)
 
 	player1 = Player("Alice", "White", initial_positions)
 	# player2 = Player("Bob", "Black", initial_positions)
@@ -59,6 +62,8 @@ if __name__ == "__main__":
 	    screen.fill(green)
 
 	    drawchequerboard(8, size)
+
+	    p1.draw()
 	    
 	    # sys.exit()
 	    pg.display.update()
