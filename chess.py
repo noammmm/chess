@@ -1,4 +1,4 @@
-import pygame as pg
+# import pygame as pg
 import sys, copy
 from helpers import *
 from piece import *
