@@ -1,9 +1,12 @@
 import pygame as pg
-import sys
+import sys, copy
 from helpers import *
 from piece import *
 from player import *
 
+
+size = wwidth, wheight =  480, 480
+screen = pg.display.set_mode(size)
 
 def drawchequerboard(n, size):
 	lttr = ["A","B","C","D","E","F","G","H"]
@@ -36,6 +39,15 @@ def drawchequerboard(n, size):
 		img = font.render(str(y+1), True, (255, 255, 255))
 		screen.blit(img, (sqrsize*0.2, y*sqrsize + sqrsize*0.4 + pad))
 
+def pprint(board_):
+	b_ = [[0]*len(board_) for _ in range (len(board_))]
+	for i in range(len(board_)):
+		for j in range(len(board_)):
+			if board_[i][j] is not None:
+				b_[i][j]=board_[i][j].piece_type
+			else:
+				b_[i][j]='____'
+		print(b_[i], "\n")
 
 
 if __name__ == "__main__":
@@ -45,15 +57,17 @@ if __name__ == "__main__":
 	font = pg.font.SysFont(None, 18)
 
 	green = (118, 150, 85)
-	size = 480, 480
-	screen = pg.display.set_mode(size)
 	# print
-	# print(initialize_positions()[1]["A"])
-	initial_positions = initialize_positions()
+	
+	board = initialize_positions(screen)
+	pprint(board)
+	print(board)
 
-	p1 = Pawn((100, 100), "Pawn", "White", screen)
+	# p1 = Pawn((100, 100),"White", screen)
+	# print(p1.piece_type)
+	sys.exit()
 
-	player1 = Player("Alice", "White", initial_positions)
+	player1 = Player("Alice", "White", board, screen)
 	# player2 = Player("Bob", "Black", initial_positions)
 	# Main loop
 	while 1:
@@ -63,7 +77,7 @@ if __name__ == "__main__":
 
 	    drawchequerboard(8, size)
 
-	    p1.draw()
+	    # p1.draw()
 	    
 	    # sys.exit()
 	    pg.display.update()

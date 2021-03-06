@@ -1,11 +1,9 @@
 import pygame as pg
+from chess import screen
 
 class Piece:
 	"""This is the class for a chess piece"""
-	def __init__(self, pos, piece_type, colour, screen):
-		self.x = pos[0]
-		self.y = pos[1]
-		self.piece_type = piece_type
+	def __init__(self, colour):
 		self.colour = colour
 		self.alive = True
 		self.font = pg.font.SysFont(None, 28)
@@ -23,38 +21,44 @@ class Piece:
 
 
 class Pawn(Piece):
-	def __init__(self, pos, piece_type, colour, screen):
-		super().__init__(pos, piece_type, colour, screen) 
+	def __init__(self, colour):
+		super().__init__(colour) 
+		self.piece_type="Pawn"
 	
 	def logic():
 		pass
 
 class Rook(Piece):
-	def __init__(self, pos, piece_type, colour):
-		super().__init__(pos, piece_type, colour)
+	def __init__(self, colour):
+		super().__init__(colour)
+		self.piece_type  = "Rook"
 	def logic():
 		pass
 
 class Knight(Piece):
-	def __init__(self, pos, piece_type, colour):
-		super().__init__(pos, piece_type, colour)
+	def __init__(self, colour):
+		super().__init__(colour)
+		self.piece_type = "Knight"
 	def logic():
 		pass
 
 class Bishop(Piece):
-	def __init__(self, pos, piece_type, colour):
-		super().__init__(pos, piece_type, colour)
+	def __init__(self, colour):
+		super().__init__(colour)
+		self.piece_type = "Bishop"
 	def logic():
 		pass
 
 class Queen(Piece):
-	def __init__(self, pos, piece_type, colour):
-		super().__init__(pos, piece_type, colour)
+	def __init__(self, colour):
+		super().__init__(colour)
+		self.piece_type = "Queen"
 	def logic():
 		pass
 
 class King(Piece):
-	def __init__(self, pos, piece_type, colour):
-		super().__init__(pos, piece_type, colour)
+	def __init__(self, colour):
+		super().__init__(colour)
+		self.piece_type = "King"
 	def logic():
 		pass

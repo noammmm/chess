@@ -1,24 +1,23 @@
 import pygame as pg
+from piece import *
 
-def initialize_positions():
+def initialize_positions(screen):
+	""" Returns 2d array with either None values or piece objects"""
 	letters = ["A","B","C","D","E","F","G","H"]
 	sc = ["A", "H", "B", "G", "C", "F"]
-	side_pieces = ["Rook", "Knight", "Bishop", "Queen"]
+	side_pieces = ["Rook", "Knight", "Bishop"]
 	colour=None
 	p_type=None
 	out = []
 	for number in range(1,9):
-		row = {}
+		row = []
 		for letter in letters:
 			# set pawns
-			colour = None
-			p_type = None
+			p = None
 			if number==2:
-				colour = "White"
-				p_type = "Pawn"
+				p = Pawn("White")
 			if number==7:
-				colour = "Black"
-				p_type = "Pawn"
+				p = Pawn("Black")
 			# back pieces			
 			if number==1:
 				# white back
@@ -29,6 +28,7 @@ def initialize_positions():
 				if letter=="D":
 					colour = "White"
 					p_type = "Queen"
+					p = Queen("White")
 				if letter=="E":
 					colour = "White"
 					p_type = "King"
@@ -42,11 +42,10 @@ def initialize_positions():
 				if letter=="D":
 					colour = "Black"
 					p_type = "Queen"
+					p = Queen("Black")
 				if letter=="E":
 					colour = "Black"
 					p_type = "King"
-
-			# row.append({letter:number, "piece":(colour, p_type)})
-			row[letter] = {"Colour":colour, "P_type":p_type}
+			row.append(p)
 		out.append(row)
 	return out
