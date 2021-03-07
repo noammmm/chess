@@ -2,13 +2,14 @@ import pygame as pg
 
 class Piece:
 	"""This is the class for a chess piece"""
-	def __init__(self, colour, board_pos):
+	def __init__(self, colour, board_pos, sq):
 		self.colour = colour
 		self.alive = True
-		self.font = pg.font.SysFont(None, 18)
+		self.font = pg.font.SysFont(None, 34)
 		self.pad = 40
 		self.selected = False
 		self.board_pos = board_pos
+		self.sqrsize = sq
 		# self.font = pg.font.SysFont(None, 28)
 		# self.screen = screen
 		if self.colour=="White":
@@ -22,7 +23,7 @@ class Piece:
 		pg.draw.circle(screen, self.col, place[::-1], 4)
 		screen.blit(img, place[::-1])
 		if self.selected:
-			pg.draw.circle(screen, (200, 200, 200), place[::-1], 25, width=2)
+			pg.draw.circle(screen, (200, 200, 200), place[::-1], self.sqrsize/2, width=2)
 
 	def moveTo(self, position):
 		pass
@@ -30,44 +31,44 @@ class Piece:
 
 
 class Pawn(Piece):
-	def __init__(self, colour, board_pos):
-		super().__init__(colour, board_pos) 
-		self.piece_type=" Pawn "
+	def __init__(self, colour, board_pos, sq):
+		super().__init__(colour, board_pos, sq) 
+		self.piece_type = "Pawn"
 	
 	def logic():
 		pass
 
 class Rook(Piece):
-	def __init__(self, colour, board_pos):
-		super().__init__(colour, board_pos)
-		self.piece_type  = " Rook "
+	def __init__(self, colour, board_pos, sq):
+		super().__init__(colour, board_pos, sq)
+		self.piece_type  = "Rook"
 	def logic():
 		pass
 
 class Knight(Piece):
-	def __init__(self, colour, board_pos):
-		super().__init__(colour, board_pos)
+	def __init__(self, colour, board_pos, sq):
+		super().__init__(colour, board_pos, sq)
 		self.piece_type = "Knight"
 	def logic():
 		pass
 
 class Bishop(Piece):
-	def __init__(self, colour, board_pos):
-		super().__init__(colour, board_pos)
+	def __init__(self, colour, board_pos, sq):
+		super().__init__(colour, board_pos, sq)
 		self.piece_type = "Bishop"
 	def logic():
 		pass
 
 class Queen(Piece):
-	def __init__(self, colour, board_pos):
-		super().__init__(colour, board_pos)
-		self.piece_type = "Queen "
+	def __init__(self, colour, board_pos, sq):
+		super().__init__(colour, board_pos, sq)
+		self.piece_type = "Queen"
 	def logic():
 		pass
 
 class King(Piece):
-	def __init__(self, colour, board_pos):
-		super().__init__(colour, board_pos)
-		self.piece_type = " King "
+	def __init__(self, colour, board_pos, sq):
+		super().__init__(colour, board_pos, sq)
+		self.piece_type = "King"
 	def logic():
 		pass

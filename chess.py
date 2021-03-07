@@ -1,12 +1,12 @@
 import pygame as pg
 import sys, copy
-from helpers import *
 from piece import *
 from player import *
 from board import *
 
-size = wwidth, wheight=  480, 480
+size = wwidth, wheight=  880, 880
 pad = 40
+squaresize = size[0] - (2*pad)//8
 screen = pg.display.set_mode(size)
 
 
@@ -25,7 +25,7 @@ if __name__ == "__main__":
     green = (118, 150, 85)
     # print
     # Create chess board
-    board = Board(initialize_positions(), size)
+    board = Board(size)
 
     # board.pprint()
     # print(board.board_)
@@ -33,7 +33,7 @@ if __name__ == "__main__":
     #     print(i, "\n")
 
     # pprint(board.pos)
-    
+    board.pprint()
     # print(type(board.pos))
     # sys.exit()
 
@@ -47,6 +47,6 @@ if __name__ == "__main__":
         for event in pg.event.get():
             if event.type == pg.QUIT: sys.exit()
             elif event.type == pg.MOUSEBUTTONDOWN:
-                board.piece_hit(pg.mouse.get_pos())
+                board.square_clicked(pg.mouse.get_pos())
         
         pg.display.update()
