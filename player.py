@@ -1,4 +1,4 @@
-from piece import *
+from piece import Rook, Knight, Bishop, Queen, King, Pawn
 
 class Player():
 

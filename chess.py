@@ -32,7 +32,6 @@ if __name__ == "__main__":
     # for i in board.board_:
     #     print(i, "\n")
 
-
     # pprint(board.pos)
     
     # print(type(board.pos))
@@ -49,6 +48,5 @@ if __name__ == "__main__":
             if event.type == pg.QUIT: sys.exit()
             elif event.type == pg.MOUSEBUTTONDOWN:
                 board.piece_hit(pg.mouse.get_pos())
-        
         
         pg.display.update()
